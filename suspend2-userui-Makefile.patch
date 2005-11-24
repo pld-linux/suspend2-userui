@@ -1,0 +1,9 @@
+--- Makefile	2005-11-16 23:31:47.948368560 +0100
++++ Makefile2	2005-11-16 23:32:14.274366400 +0100
+@@ -1,5 +1,5 @@
+ CFLAGS := -Wall -O3 -g
+-LDFLAGS := -static
++LDFLAGS :=
+ 
+ DESTDIR :=
+ PREFIX := /usr/local
