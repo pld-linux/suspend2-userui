@@ -1,3 +1,4 @@
+# TODO: optflags
 Summary:	Suspend2 User UI
 Summary(pl):	Interfejs u¿ytkownika dla Suspend2
 Name:		suspend2-userui
@@ -12,11 +13,11 @@ URL:		http://www.suspend2.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	freetype-devel
-BuildRequires:	zlib-devel
-BuildRequires:	libpng-devel
-BuildRequires:	libmng-devel
-BuildRequires:	libjpeg-devel
 BuildRequires:	lcms-devel
+BuildRequires:	libjpeg-devel
+BuildRequires:	libmng-devel
+BuildRequires:	libpng-devel
+BuildRequires:	zlib-devel
 Requires:	hibernate >= 1.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,7 +27,7 @@ your laptop. There is a text-ui and a graphical fbsplash-ui available.
 
 %description -l pl
 Suspend2-userui pozwala na u¿ywanie interfejsu u¿ytkownika w procesie
-hibernacji Twojego laptopa. Dostêpny jest tryb tekstowy oraz graficzny
+hibernacji laptopa. Dostêpny jest tryb tekstowy oraz graficzny
 (fbsplash).
 
 %prep
