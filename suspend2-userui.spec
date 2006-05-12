@@ -1,4 +1,5 @@
 Summary:	Suspend2 User UI
+Summary(de):	Suspend2 Benutzer Interface
 Summary(pl):	Interfejs u¿ytkownika dla Suspend2
 Name:		suspend2-userui
 Version:	0.6.3
@@ -21,8 +22,13 @@ Requires:	hibernate >= 1.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Suspend2-userui allows you use a user interface while hibernating
-your laptop. There is a text-ui and a graphical fbsplash-ui available.
+Suspend2-userui allows you use a user interface while hibernating your
+laptop. There is a text-ui and a graphical fbsplash-ui available.
+
+%description -l de
+Suspend2-userui erlaubt es dir ein Benutzer Interface zu nutzen wenn
+du deinen Laptop einfrierst. Ein Tekst-UI und ein graphisches UI
+stehen zur Verfügung.
 
 %description -l pl
 Suspend2-userui pozwala na u¿ywanie interfejsu u¿ytkownika w procesie
