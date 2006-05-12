@@ -1,4 +1,3 @@
-# TODO: optflags
 Summary:	Suspend2 User UI
 Summary(pl):	Interfejs u¿ytkownika dla Suspend2
 Name:		suspend2-userui
@@ -35,7 +34,7 @@ hibernacji laptopa. Dostêpny jest tryb tekstowy oraz graficzny
 %patch0 -p0
 
 %build
-%{__make}
+%{__make} CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
