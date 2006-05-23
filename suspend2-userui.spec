@@ -40,7 +40,9 @@ hibernacji laptopa. Dostêpny jest tryb tekstowy oraz graficzny
 %patch0 -p0
 
 %build
-%{__make} CFLAGS="%{rpmcflags}"
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
