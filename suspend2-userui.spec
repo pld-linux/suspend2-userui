@@ -3,7 +3,7 @@ Summary(de):	Suspend2 Benutzer Interface
 Summary(pl):	Interfejs u¿ytkownika dla Suspend2
 Name:		suspend2-userui
 Version:	0.6.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.suspend2.net/downloads/all/%{name}-%{version}.tar.gz
