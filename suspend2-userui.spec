@@ -2,13 +2,12 @@ Summary:	Suspend2 User UI
 Summary(de):	Suspend2 Benutzer Interface
 Summary(pl):	Interfejs u¿ytkownika dla Suspend2
 Name:		suspend2-userui
-Version:	0.6.3
-Release:	2
+Version:	0.6.4
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.suspend2.net/downloads/all/%{name}-%{version}.tar.gz
-# Source0-md5:	0d3a51d821da88149298ed4aa3118c3e
-Patch0:		%{name}-Makefile.patch
+# Source0-md5:	737427dd2eb076907674a4334735c2ef
 URL:		http://www.suspend2.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -37,7 +36,6 @@ hibernacji laptopa. Dostêpny jest tryb tekstowy oraz graficzny
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 %{__make} \
