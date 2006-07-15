@@ -1,3 +1,5 @@
+%bcond_with	static	# don't use shared libraries
+
 Summary:	Suspend2 User UI
 Summary(de):	Suspend2 Benutzer Interface
 Summary(pl):	Interfejs u¿ytkownika dla Suspend2
@@ -18,6 +20,15 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libmng-devel
 BuildRequires:	libpng-devel
 BuildRequires:	zlib-devel
+%if %{with static}
+BuildRequires:	freetype-static
+BuildRequires:	glibc-static
+BuildRequires:	lcms-static
+BuildRequires:	libjpeg-static
+BuildRequires:	libmng-static
+BuildRequires:	libpng-static
+BuildRequires:	zlib-static
+%endif
 Requires:	hibernate >= 1.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,7 +53,8 @@ hibernacji laptopa. Dostêpny jest tryb tekstowy oraz graficzny
 %build
 %{__make} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags}"
+	CFLAGS="%{rpmcflags}" \
+	%{?with_static:LDFLAGS="-static"}
 
 %install
 rm -rf $RPM_BUILD_ROOT
