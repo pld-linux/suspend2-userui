@@ -3,11 +3,12 @@ Summary(de):	Suspend2 Benutzer Interface
 Summary(pl):	Interfejs u¿ytkownika dla Suspend2
 Name:		suspend2-userui
 Version:	0.6.4
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.suspend2.net/downloads/all/%{name}-%{version}.tar.gz
 # Source0-md5:	737427dd2eb076907674a4334735c2ef
+Patch0:		%{name}-Makefile.patch
 URL:		http://www.suspend2.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -36,6 +37,7 @@ hibernacji laptopa. Dostêpny jest tryb tekstowy oraz graficzny
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %{__make} \
@@ -46,7 +48,8 @@ hibernacji laptopa. Dostêpny jest tryb tekstowy oraz graficzny
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sbindir}
 
-install {suspend2ui_text,suspend2ui_fbsplash} $RPM_BUILD_ROOT%{_sbindir}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -54,5 +57,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README USERUI_API KERNEL_API
-%attr(755,root,root) %{_sbindir}/suspend2ui_text
-%attr(755,root,root) %{_sbindir}/suspend2ui_fbsplash
+%attr(755,root,root) %{_sbindir}/suspend2ui_*
