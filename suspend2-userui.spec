@@ -1,11 +1,12 @@
+#
 %bcond_with	static	# don't use shared libraries
-
+#
 Summary:	Suspend2 User UI
 Summary(de):	Suspend2 Benutzer Interface
 Summary(pl):	Interfejs u¿ytkownika dla Suspend2
 Name:		suspend2-userui
 Version:	0.6.4
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.suspend2.net/downloads/all/%{name}-%{version}.tar.gz
@@ -18,7 +19,7 @@ BuildRequires:	freetype-devel
 BuildRequires:	lcms-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libmng-devel
-BuildRequires:	libpng-devel
+BuildRequires:	libpng-devel >= 1.2.12
 BuildRequires:	zlib-devel
 %if %{with static}
 BuildRequires:	freetype-static
@@ -26,10 +27,10 @@ BuildRequires:	glibc-static
 BuildRequires:	lcms-static
 BuildRequires:	libjpeg-static
 BuildRequires:	libmng-static
-BuildRequires:	libpng-static
+BuildRequires:	libpng-static >= 1.2.12
 BuildRequires:	zlib-static
 %endif
-Requires:	hibernate >= 1.12
+Requires:	hibernate >= 1.93
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -48,7 +49,7 @@ hibernacji laptopa. Dostêpny jest tryb tekstowy oraz graficzny
 
 %prep
 %setup -q
-%patch0 -p0
+%patch0 -p1
 
 %build
 %{__make} \
