@@ -1,6 +1,7 @@
---- Makefile	2006-06-06 19:25:10.000000000 +0200
-+++ Makefile-new	2006-07-15 02:33:01.228046632 +0200
-@@ -2,7 +2,7 @@
+diff -aurN suspend2-userui-0.6.4.orig/Makefile suspend2-userui-0.6.4/Makefile
+--- suspend2-userui-0.6.4.orig/Makefile	2006-06-06 19:25:10.000000000 +0200
++++ suspend2-userui-0.6.4/Makefile	2006-07-16 09:05:06.089775599 +0200
+@@ -2,14 +2,14 @@
  LDFLAGS := 
  
  DESTDIR :=
@@ -9,10 +10,19 @@
  INSTDIR := $(DESTDIR)$(PREFIX)/sbin
  
  MODULES = text fbsplash usplash
-@@ -37,7 +37,7 @@
+ TARGETS = $(patsubst %,suspend2ui_%,$(MODULES))
+ CORE_OBJECTS = userui_core.o
+ 
+-FBSPLASH_LIBS = -lmng -lpng -ljpeg -lz -lfreetype -llcms -lm
++FBSPLASH_LIBS = -lmng -lpng12 -ljpeg -lz -lfreetype -llcms -lm
+ 
+ USPLASH_LIBS = -ldl
+ 
+@@ -36,8 +36,7 @@
+ 	make -C usplash clean
  
  $(INSTDIR)/%: %
- 	strip $<
+-	strip $<
 -	install -m 755 -o root -g root $< $@
 +	install -m 755 $< $@
  
