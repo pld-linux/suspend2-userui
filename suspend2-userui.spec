@@ -51,6 +51,7 @@ hibernacji laptopa. Dostêpny jest tryb tekstowy oraz graficzny
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} \
