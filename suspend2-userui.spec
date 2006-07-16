@@ -6,12 +6,13 @@ Summary(de):	Suspend2 Benutzer Interface
 Summary(pl):	Interfejs u¿ytkownika dla Suspend2
 Name:		suspend2-userui
 Version:	0.6.4
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.suspend2.net/downloads/all/%{name}-%{version}.tar.gz
 # Source0-md5:	737427dd2eb076907674a4334735c2ef
 Patch0:		%{name}-Makefile.patch
+Patch1:		%{name}-include.patch
 URL:		http://www.suspend2.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
