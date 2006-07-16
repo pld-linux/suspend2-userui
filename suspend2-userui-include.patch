@@ -10,3 +10,19 @@ diff -aurN suspend2-userui-0.6.4.orig/usplash/bogl.c suspend2-userui-0.6.4/uspla
  #endif
  #include <sys/ioctl.h>
  #include <sys/mman.h>
+diff -aurN suspend2-userui-0.6.4.orig/usplash/bogl-vga16.c suspend2-userui-0.6.4/usplash/bogl-vga16.c
+--- suspend2-userui-0.6.4.orig/usplash/bogl-vga16.c	2006-06-06 19:25:11.000000000 +0200
++++ suspend2-userui-0.6.4/usplash/bogl-vga16.c	2006-07-16 09:44:39.327988551 +0200
+@@ -30,7 +30,11 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+-#include <sys/io.h>
++#if defined(__i386__) || defined(__alpha__)                                                                                                 
++#include <sys/io.h>                                                                                                                         
++#else                                                                                                                                       
++#include <asm/io.h>                                                                                                                         
++#endif
+ #include <sys/ioctl.h>
+ #include <sys/mman.h>
+ #include <sys/stat.h>
