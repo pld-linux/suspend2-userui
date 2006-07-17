@@ -6,13 +6,13 @@ Summary(de):	Suspend2 Benutzer Interface
 Summary(pl):	Interfejs u¿ytkownika dla Suspend2
 Name:		suspend2-userui
 Version:	0.6.4
-Release:	5.2
+Release:	5.3
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.suspend2.net/downloads/all/%{name}-%{version}.tar.gz
 # Source0-md5:	737427dd2eb076907674a4334735c2ef
 Patch0:		%{name}-Makefile.patch
-Patch1:		%{name}-include.patch
+Patch1:		%{name}-ppc.patch
 URL:		http://www.suspend2.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -51,14 +51,16 @@ hibernacji laptopa. Dostêpny jest tryb tekstowy oraz graficzny
 %prep
 %setup -q
 %patch0 -p1
+
+%ifarch ppc
 %patch1 -p1
+%endif
 
 %build
 %{__make} \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}" \
-	%{?with_static:LDFLAGS="-static"}
-
+	%{?with_static:LDFLAGS="-static"} \
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sbindir}
