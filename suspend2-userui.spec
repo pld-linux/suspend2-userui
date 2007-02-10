@@ -1,16 +1,18 @@
 #
+# TODO:	- build process ignores static bcond (always builds static)
+#
 %bcond_with	static	# don't use shared libraries
 #
 Summary:	Suspend2 User UI
 Summary(de):	Suspend2 Benutzer Interface
 Summary(pl):	Interfejs u¿ytkownika dla Suspend2
 Name:		suspend2-userui
-Version:	0.6.4
-Release:	6
+Version:	0.7.0
+Release:	0.1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.suspend2.net/downloads/all/%{name}-%{version}.tar.gz
-# Source0-md5:	737427dd2eb076907674a4334735c2ef
+# Source0-md5:	7a41e9195597319825ecee0d1f3aa166
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-ppc.patch
 URL:		http://www.suspend2.net/
