@@ -4,8 +4,8 @@
 %bcond_with	static	# don't use shared libraries
 #
 Summary:	Suspend2 User UI
-Summary(de.UTF-8):   Suspend2 Benutzer Interface
-Summary(pl.UTF-8):   Interfejs użytkownika dla Suspend2
+Summary(de.UTF-8):	Suspend2 Benutzer Interface
+Summary(pl.UTF-8):	Interfejs użytkownika dla Suspend2
 Name:		suspend2-userui
 Version:	0.7.0
 Release:	0.1
