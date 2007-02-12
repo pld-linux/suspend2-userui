@@ -4,8 +4,8 @@
 %bcond_with	static	# don't use shared libraries
 #
 Summary:	Suspend2 User UI
-Summary(de):	Suspend2 Benutzer Interface
-Summary(pl):	Interfejs u¿ytkownika dla Suspend2
+Summary(de.UTF-8):   Suspend2 Benutzer Interface
+Summary(pl.UTF-8):   Interfejs uÅ¼ytkownika dla Suspend2
 Name:		suspend2-userui
 Version:	0.7.0
 Release:	0.1
@@ -40,14 +40,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Suspend2-userui allows you use a user interface while hibernating your
 laptop. There is a text-ui and a graphical fbsplash-ui available.
 
-%description -l de
+%description -l de.UTF-8
 Suspend2-userui erlaubt es dir ein Benutzer Interface zu nutzen wenn
 du deinen Laptop einfrierst. Ein Tekst-UI und ein graphisches UI
-stehen zur Verfügung.
+stehen zur VerfÃ¼gung.
 
-%description -l pl
-Suspend2-userui pozwala na u¿ywanie interfejsu u¿ytkownika w procesie
-hibernacji laptopa. Dostêpny jest tryb tekstowy oraz graficzny
+%description -l pl.UTF-8
+Suspend2-userui pozwala na uÅ¼ywanie interfejsu uÅ¼ytkownika w procesie
+hibernacji laptopa. DostÄ™pny jest tryb tekstowy oraz graficzny
 (fbsplash).
 
 %prep
