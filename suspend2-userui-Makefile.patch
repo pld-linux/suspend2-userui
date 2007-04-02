@@ -1,8 +1,7 @@
-diff -aurN suspend2-userui-0.6.4.orig/Makefile suspend2-userui-0.6.4/Makefile
---- suspend2-userui-0.6.4.orig/Makefile	2006-06-06 19:25:10.000000000 +0200
-+++ suspend2-userui-0.6.4/Makefile	2006-07-16 09:05:06.089775599 +0200
+--- suspend2-userui-0.7.0/Makefile	2007-01-16 23:16:46.000000000 +0100
++++ suspend2-userui-0.7.0/Makefile-new	2007-04-02 23:50:04.583044390 +0200
 @@ -2,14 +2,14 @@
- LDFLAGS := 
+ LDFLAGS :=
  
  DESTDIR :=
 -PREFIX := /usr/local
@@ -18,6 +17,23 @@ diff -aurN suspend2-userui-0.6.4.orig/Makefile suspend2-userui-0.6.4/Makefile
  
  USPLASH_LIBS = -ldl
  
+@@ -22,13 +22,13 @@
+ 	make -C $@ all
+ 
+ suspend2ui_text: $(CORE_OBJECTS) userui_text.o
+-	$(CC) $(LDFLAGS) -static $^ -o $@
++	$(CC) $(LDFLAGS) $^ -o $@
+ 
+ suspend2ui_fbsplash: $(CORE_OBJECTS) fbsplash/userui_fbsplash.o
+-	$(CC) $(LDFLAGS) -static $^ -o $@ $(FBSPLASH_LIBS)
++	$(CC) $(LDFLAGS) $^ -o $@ $(FBSPLASH_LIBS)
+ 
+ suspend2ui_usplash: $(CORE_OBJECTS) usplash/userui_usplash.o
+-	$(CC) $(filter-out -static,$(LDFLAGS)) $^ -o $@ $(USPLASH_LIBS)
++	$(CC) $^ -o $@ $(USPLASH_LIBS)
+ 
+ clean:
+ 	$(RM) *.o $(TARGETS)
 @@ -36,8 +36,7 @@
  	make -C usplash clean
  
