@@ -36,7 +36,7 @@ BuildRequires:	zlib-static
 %endif
 %endif
 %if %{with usplash}
-BuildRequires:	usplash
+BuildRequires:	usplash-devel >= 0.5.2
 %endif
 Requires:	hibernate >= 1.93
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
