@@ -8,13 +8,12 @@ Summary(de.UTF-8):	Suspend2 Benutzer Interface
 Summary(pl.UTF-8):	Interfejs użytkownika dla Suspend2
 Name:		suspend2-userui
 Version:	0.7.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.suspend2.net/downloads/all/%{name}-%{version}.tar.gz
 # Source0-md5:	7403ebf48a598ba13d5155b2660a06df
 Patch0:		%{name}-Makefile.patch
-Patch1:		%{name}-ppc.patch
 URL:		http://www.suspend2.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -90,10 +89,6 @@ Ta paczka zawiera UI dla usplasha.
 %setup -q
 %patch0 -p1
 
-%ifarch ppc
-%patch1 -p1
-%endif
-
 %build
 %{__make} clean
 %{__make} tuxoniceui_text \
@@ -101,6 +96,7 @@ Ta paczka zawiera UI dla usplasha.
 	CFLAGS="%{rpmcflags}" \
 	%{?with_static:LDFLAGS="-static"}
 
+%ifarch !ppc
 %if %{with fbsplash}
 %{__make} -C fbsplash
 	CC="%{__cc}"
@@ -124,17 +120,20 @@ Ta paczka zawiera UI dla usplasha.
 	CFLAGS="%{rpmcflags}" \
 	%{?with_static:LDFLAGS="-static"}
 %endif
+%endif # arch
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sbindir}
 
 install tuxoniceui_text $RPM_BUILD_ROOT%{_sbindir}
+%ifarhc !ppc
 %if %{with fbsplash}
 install tuxoniceui_fbsplash $RPM_BUILD_ROOT%{_sbindir}
 %endif
 %if %{with usplash}
 install tuxoniceui_usplash $RPM_BUILD_ROOT%{_sbindir}
+%endif
 %endif
 
 %clean
@@ -145,6 +144,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README USERUI_API KERNEL_API
 %attr(755,root,root) %{_sbindir}/tuxoniceui_text
 
+%ifarch !ppc
 %if %{with fbsplash}
 %files fbsplash
 %defattr(644,root,root,755)
@@ -155,4 +155,5 @@ rm -rf $RPM_BUILD_ROOT
 %files usplash
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_sbindir}/tuxoniceui_usplash
+%endif
 %endif
