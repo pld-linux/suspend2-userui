@@ -1,21 +1,20 @@
-diff -aurN suspend2-userui-0.6.4.orig/Makefile suspend2-userui-0.6.4/Makefile
---- suspend2-userui-0.6.4.orig/Makefile	2006-06-06 19:25:10.000000000 +0200
-+++ suspend2-userui-0.6.4/Makefile	2006-07-17 19:17:59.729842282 +0200
+--- suspend2-userui-0.7.2/Makefile.orig	2007-08-23 17:34:13.812277749 +0200
++++ suspend2-userui-0.7.2/Makefile	2007-08-23 17:35:35.045532820 +0200
 @@ -5,7 +5,7 @@
- PREFIX := /usr/local
+ PREFIX := /usr
  INSTDIR := $(DESTDIR)$(PREFIX)/sbin
  
 -MODULES = text fbsplash usplash
 +MODULES = text
- TARGETS = $(patsubst %,suspend2ui_%,$(MODULES))
+ TARGETS = $(patsubst %,tuxoniceui_%,$(MODULES))
  CORE_OBJECTS = userui_core.o
  
-@@ -13,7 +13,7 @@
+@@ -30,7 +30,7 @@
+ 	@echo "       - To build this, you must have libusplash0 installed."
  
- USPLASH_LIBS = -ldl
- 
--all: fbsplash usplash $(TARGETS)
-+all: $(TARGETS)
- 
+ all: $(TARGETS)
+-
++	
  fbsplash:
  	make -C $@ all
+ 
