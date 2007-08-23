@@ -1,6 +1,6 @@
 
 %bcond_with	static		# don't use shared libraries
-%bcond_with	usplash		# build usplash UI
+%bcond_without	usplash		# build usplash UI
 %bcond_without	fbsplash	# don't build fbsplash UI
 
 Summary:	Suspend2 User UI
