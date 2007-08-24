@@ -96,7 +96,7 @@ Ta paczka zawiera UI dla usplasha.
 	CFLAGS="%{rpmcflags}" \
 	%{?with_static:LDFLAGS="-static"}
 
-%ifarch !ppc
+%ifnarch ppc
 %if %{with fbsplash}
 %{__make} -C fbsplash
 	CC="%{__cc}"
@@ -127,7 +127,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sbindir}
 
 install tuxoniceui_text $RPM_BUILD_ROOT%{_sbindir}
-%ifarhc !ppc
+%ifnarch ppc
 %if %{with fbsplash}
 install tuxoniceui_fbsplash $RPM_BUILD_ROOT%{_sbindir}
 %endif
@@ -144,7 +144,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README USERUI_API KERNEL_API
 %attr(755,root,root) %{_sbindir}/tuxoniceui_text
 
-%ifarch !ppc
+%ifnarch ppc
 %if %{with fbsplash}
 %files fbsplash
 %defattr(644,root,root,755)
